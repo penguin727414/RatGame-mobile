@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>打地鼠 - 手機版</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>打地鼠遊戲</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>打地鼠！🐹（手機版）</h1>
-  <h2>得分: <span id="score">0</span></h2>
-  <div class="game-board" id="gameBoard"></div>
+  <div id="start-screen">
+    <h1>打地鼠！</h1>
+    <button onclick="startGame('timed')">限時模式</button>
+    <button onclick="startGame('endless')">無盡模式</button>
+  </div>
+
+  <div id="game-screen" class="hidden">
+    <div id="info">
+      <div>得分：<span id="score">0</span></div>
+      <div id="timer" class="hidden">剩餘時間：<span id="time">60</span> 秒</div>
+      <div id="missed" class="hidden">失誤：<span id="miss">0</span>/3</div>
+    </div>
+    <div id="grid"></div>
+  </div>
+
+  <div id="end-screen" class="hidden">
+    <h1>遊戲結束！</h1>
+    <p>你的得分是：<span id="final-score"></span></p>
+    <button onclick="restartGame()">再玩一次</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
