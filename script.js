@@ -121,6 +121,7 @@ function showMoles() {
     const mole = document.createElement('div');
     mole.classList.add('mole');
     mole.addEventListener('click', hitMole);
+    mole.addEventListener('touchstart', hitMole);
     holes[pos].appendChild(mole);
     activeMoles.add(pos); // 記錄有地鼠的位置
   });
@@ -132,6 +133,7 @@ function showMoles() {
 }
 
 function hitMole(e) {
+    e.preventDefault(); // 防止觸控同時觸發click
     score++;
     scoreBoard.textContent = score;
   
